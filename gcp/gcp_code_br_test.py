@@ -7,7 +7,7 @@ r = requests.post(url, json={"total_bilirubin": 0.8, "direct_bilirubin": 0.1})
 print(r.status_code, r.json())  # expect: "status": "normal"
 
 r = requests.post(url, json={"total_bilirubin": 2.5, "direct_bilirubin": 0.1})
-print(r.status_code, r.json())  # expect: "status": "abnormal", jaundice risk
+print(r.status_code, r.json())  # expect: "status": "abnormal"
 
 # GET example (optional)
 r = requests.get(url, params={"total_bilirubin": 0.8, "direct_bilirubin": 0.1})

@@ -36,7 +36,6 @@ def hello_http(request):
     # Simple interpretation using Mount Sinai reference ranges:
     # total normal: 0.1 - 1.2 mg/dL
     # direct normal: < 0.3 mg/dL
-    # jaundice risk: total >= 2.0 mg/dL
     total_normal = 0.1 <= total_val <= 1.2
     direct_normal = direct_val < 0.3
 
@@ -45,9 +44,7 @@ def hello_http(request):
         category = "Normal (total 0.1–1.2 mg/dL; direct <0.3 mg/dL)"
     else:
         status = "abnormal"
-        if total_val >= 2.0:
-            category = "High — jaundice risk (total ≥ 2.0 mg/dL)"
-        elif not direct_normal:
+        if not direct_normal:
             category = "Elevated direct bilirubin (direct ≥ 0.3 mg/dL)"
         else:
             category = "Elevated total bilirubin (total outside 0.1–1.2 mg/dL)"
